@@ -96,9 +96,9 @@ public class ScheduleAction extends BaseAction {
 		// insert object
 		Schedule schedule = new Schedule();
 		schedule.setUsername(username);
-		schedule.setYear(new Integer(scheduleForm.getYear()));
+		/*schedule.setYear(new Integer(scheduleForm.getYear()));
 		schedule.setMonth(new Integer(scheduleForm.getMonth()));
-		schedule.setDay(new Integer(scheduleForm.getDay()));
+		schedule.setDay(new Integer(scheduleForm.getDay()));*/
 		schedule.setPlan(scheduleForm.getPlan());
 		schedule.setTime(scheduleForm.getTime());
 		scheduleDAO.insert(schedule);
@@ -146,9 +146,9 @@ public class ScheduleAction extends BaseAction {
 			ScheduleForm scheduleForm = new ScheduleForm();
 			scheduleForm.setId(schedule.getId().toString());
 			scheduleForm.setUsername(schedule.getUsername());
-			scheduleForm.setYear(schedule.getYear().toString());
+			/*scheduleForm.setYear(schedule.getYear().toString());
 			scheduleForm.setMonth(schedule.getMonth().toString());
-			scheduleForm.setDay(schedule.getDay().toString());
+			scheduleForm.setDay(schedule.getDay().toString());*/
 			schedule.setTime(scheduleForm.getTime());
 			scheduleForm.setPlan(schedule.getPlan());
 			
@@ -170,9 +170,10 @@ public class ScheduleAction extends BaseAction {
 		// update object
 		schedule.setId(new Integer(scheduleForm.getId()));
 		schedule.setUsername(username);
-		schedule.setYear(new Integer(scheduleForm.getYear()));
+		/*schedule.setYear(new Integer(scheduleForm.getYear()));
 		schedule.setMonth(new Integer(scheduleForm.getMonth()));
-		schedule.setDay(new Integer(scheduleForm.getDay()));
+		schedule.setDay(new Integer(scheduleForm.getDay()));*/
+		schedule.setTime(scheduleForm.getTime());
 		schedule.setPlan(scheduleForm.getPlan());
 		scheduleDAO.update(schedule);
 		

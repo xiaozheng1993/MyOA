@@ -96,12 +96,13 @@ public class WorklogAction extends BaseAction {
 		// insert object
 		Worklog worklog = new Worklog();
 		worklog.setUsername(username);
-		worklog.setYear(new Integer(worklogForm.getYear()));
+		/*worklog.setYear(new Integer(worklogForm.getYear()));
 		worklog.setMonth(new Integer(worklogForm.getMonth()));
-		worklog.setDay(new Integer(worklogForm.getDay()));
+		worklog.setDay(new Integer(worklogForm.getDay()));*/
 		worklog.setTitle(worklogForm.getTitle());
 		worklog.setDescription(worklogForm.getDescription());
 		worklog.setLogtime(worklogForm.getLogtime());
+		worklog.setTime(worklogForm.getTime());
 		worklogDAO.insert(worklog);
 		
 		// save messages
@@ -153,7 +154,7 @@ public class WorklogAction extends BaseAction {
 			worklogForm.setTitle(worklog.getTitle());
 			worklogForm.setDescription(worklog.getDescription());
 			worklogForm.setLogtime(worklog.getLogtime());
-			
+			worklog.setTime(worklogForm.getTime());
 			// save in request
 			request.setAttribute("worklogFormBean", worklogForm);
 
@@ -178,6 +179,7 @@ public class WorklogAction extends BaseAction {
 		worklog.setTitle(worklogForm.getTitle());
 		worklog.setDescription(worklogForm.getDescription());
 		worklog.setLogtime(worklogForm.getLogtime());
+		worklog.setTime(worklogForm.getTime());
 		worklogDAO.update(worklog);
 		
 		// save messages

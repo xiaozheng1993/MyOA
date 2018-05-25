@@ -34,12 +34,14 @@ public class WorklogForm extends ActionForm {
 
 	protected String logtime = null;
 
+	protected String time = null;
+
 	public ActionErrors validate(ActionMapping arg0, HttpServletRequest arg1) {
 		ActionErrors errors = new ActionErrors();
 		String queryString = arg1.getQueryString();
 		if (queryString.equalsIgnoreCase("method=insert")
 				|| queryString.equalsIgnoreCase("method=update")) {
-			Pattern p_year = Pattern.compile(RegExpression.REG_year);
+			/*Pattern p_year = Pattern.compile(RegExpression.REG_year);
 			Matcher m_year = p_year.matcher(year);
 			if (!m_year.find()) {
 				errors.add("year", new ActionMessage("worklog.error.year"));
@@ -55,7 +57,7 @@ public class WorklogForm extends ActionForm {
 			Matcher m_day = p_day.matcher(day);
 			if (!m_day.find()) {
 				errors.add("day", new ActionMessage("worklog.error.day"));
-			}
+			}*/
 
 			if (title == null || title.equals("")) {
 				errors.add("title", new ActionMessage("worklog.error.title"));
@@ -63,6 +65,9 @@ public class WorklogForm extends ActionForm {
 
 			if (description == null || description.equals("")) {
 				errors.add("description", new ActionMessage("worklog.error.description"));
+			}
+			if (time == null || time.equals("")){
+				errors.add("time",new ActionMessage("schedule.error.time"));
 			}
 		}
 		arg1.setAttribute("worklogFormBean", this);
@@ -134,6 +139,12 @@ public class WorklogForm extends ActionForm {
 	public void setYear(String year) {
 		this.year = year;
 	}
-	
-	
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
 }

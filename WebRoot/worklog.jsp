@@ -36,9 +36,10 @@
 <b><html:errors property="org.apache.struts.action.GLOBAL_MESSAGE" /></b>
 <TABLE border="0" width="100%">
 	<TR class="tableheader">
-		<TD><bean:message key="worklog.page.year" /></TD>
+		<%--<TD><bean:message key="worklog.page.year" /></TD>
 		<TD><bean:message key="worklog.page.month" /></TD>
-		<TD><bean:message key="worklog.page.day" /></TD>
+		<TD><bean:message key="worklog.page.day" /></TD>--%>
+		<TD><bean:message key="schedule.page.time" /></TD>
 		<TD><bean:message key="worklog.page.title" /></TD>
 		<TD><bean:message key="worklog.page.description" /></TD>
 		<TD><bean:message key="worklog.page.logtime" /></TD>
@@ -47,9 +48,10 @@
 	<logic:present name="worklogList">
 	<logic:iterate id="worklog" name="worklogList" scope="request">
 	<TR>
-		<TD><bean:write name="worklog" property="year" scope="page"/></TD>
+		<%--<TD><bean:write name="worklog" property="year" scope="page"/></TD>
 		<TD><bean:write name="worklog" property="month" scope="page"/></TD>
-		<TD><bean:write name="worklog" property="day" scope="page"/></TD>
+		<TD><bean:write name="worklog" property="day" scope="page"/></TD>--%>
+		<TD><bean:write name="worklog" property="time" scope="page"/></TD>
 		<TD><bean:write name="worklog" property="title" scope="page"/></TD>
 		<TD><bean:write name="worklog" property="description" scope="page"/></TD>
 		<TD><bean:write name="worklog" property="logtime" scope="page"/></TD>

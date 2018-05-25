@@ -18,6 +18,7 @@
         <property name="title" column="title" type="java.lang.String" />
         <property name="description" column="description" type="java.lang.String" />
         <property name="logtime" column="logtime" type="java.lang.String" />
+        <property name="time" column="time" type="java.lang.String" />
     </class>
     
 </hibernate-mapping>

@@ -23,6 +23,23 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" type="text/css" href="styles.css">
+	<link type="text/css" rel="stylesheet" href="css/jeDate-test.css">
+	<link type="text/css" rel="stylesheet" href="css/jedate.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="js/jquery.jedate.js"></script>
+	<script type="text/javascript">
+        /**
+         * jeDate 演示
+         */
+        $(function () {
+            //常规选择
+            $("#test03").jeDate({
+                format: "YYYY-MM-DD"
+            });
+
+
+        });
+	</script>
 </head>
 
 <body>
@@ -37,7 +54,7 @@
 <form name="form1" action="worklog_add.do?method=insert" method="post">
 <b><html:errors property="org.apache.struts.action.GLOBAL_MESSAGE" /></b>
 <TABLE border="0" width="100%">
-	<TR>
+	<%--<TR>
 		<TD><bean:message key="worklog.page.year" /></TD>
 		<TD><logic:present name="worklogFormBean">
 			<html:text property="year" name="worklogFormBean" maxlength="4"/>
@@ -60,7 +77,21 @@
 		</logic:present> <logic:notPresent name="worklogFormBean">
 			<input type="text" name="day" maxlength="2">
 		</logic:notPresent> <html:errors property="day" /></TD>
-	</TR>
+	</TR>--%>
+		<%--新加字段--%>
+		<TR>
+			<TD><bean:message key="schedule.page.time" /></TD>
+			<TD><logic:present name="worklogFormBean">
+				<%--<html:text property="time" name="scheduleFormBean" maxlength="10"/>--%>
+			</logic:present>
+				<%--<logic:notPresent name="scheduleFormBean">--%>
+
+				<input type="text" name="time" class="jeinput" id="test03" placeholder="YYYY-MM-DD">
+
+				<%--<input type="text" name="time" maxlength="10">--%>
+				<%--</logic:notPresent> --%>
+				<html:errors property="time" /></TD>
+		</TR>
 	<TR>
 		<TD><bean:message key="worklog.page.title" /></TD>
 		<TD><logic:present name="worklogFormBean">

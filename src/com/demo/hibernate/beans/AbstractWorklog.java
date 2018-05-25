@@ -43,6 +43,8 @@ public abstract class AbstractWorklog
 
     /** The value of the simple logtime property. */
     private java.lang.String logtime;
+    private java.lang.String time;
+
 
     /**
      * Simple constructor of AbstractWorklog instances.
@@ -203,6 +205,14 @@ public abstract class AbstractWorklog
     public void setLogtime(java.lang.String logtime)
     {
         this.logtime = logtime;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     /**

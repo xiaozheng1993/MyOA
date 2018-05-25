@@ -16,6 +16,7 @@
         <property name="month" column="month" type="java.lang.Integer" />
         <property name="day" column="day" type="java.lang.Integer" />
         <property name="plan" column="plan" type="java.lang.String" />
+        <property name="time" column="time" type="java.lang.String" />
     </class>
     
 </hibernate-mapping>

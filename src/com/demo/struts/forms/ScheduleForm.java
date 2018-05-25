@@ -28,12 +28,14 @@ public class ScheduleForm extends ActionForm {
 
 	protected String plan = null;
 
+	protected String time = null;
+
 	public ActionErrors validate(ActionMapping arg0, HttpServletRequest arg1) {
 		ActionErrors errors = new ActionErrors();
 		String queryString = arg1.getQueryString();
 		if (queryString.equalsIgnoreCase("method=insert")
 				|| queryString.equalsIgnoreCase("method=update")) {
-			Pattern p_year = Pattern.compile(RegExpression.REG_year);
+			/*Pattern p_year = Pattern.compile(RegExpression.REG_year);
 			Matcher m_year = p_year.matcher(year);
 			if (!m_year.find()) {
 				errors.add("year", new ActionMessage("schedule.error.year"));
@@ -49,10 +51,13 @@ public class ScheduleForm extends ActionForm {
 			Matcher m_day = p_day.matcher(day);
 			if (!m_day.find()) {
 				errors.add("day", new ActionMessage("schedule.error.day"));
-			}
+			}*/
 
 			if (plan == null || plan.equals("")) {
 				errors.add("plan", new ActionMessage("schedule.error.plan"));
+			}
+			if (time == null || time.equals("")) {
+				errors.add("time", new ActionMessage("schedule.error.time"));
 			}
 		}
 		arg1.setAttribute("scheduleFormBean", this);
@@ -105,5 +110,13 @@ public class ScheduleForm extends ActionForm {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
 	}
 }

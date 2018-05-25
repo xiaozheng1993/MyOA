@@ -100,6 +100,7 @@ public class ScheduleAction extends BaseAction {
 		schedule.setMonth(new Integer(scheduleForm.getMonth()));
 		schedule.setDay(new Integer(scheduleForm.getDay()));
 		schedule.setPlan(scheduleForm.getPlan());
+		schedule.setTime(scheduleForm.getTime());
 		scheduleDAO.insert(schedule);
 		
 		// save messages
@@ -148,6 +149,7 @@ public class ScheduleAction extends BaseAction {
 			scheduleForm.setYear(schedule.getYear().toString());
 			scheduleForm.setMonth(schedule.getMonth().toString());
 			scheduleForm.setDay(schedule.getDay().toString());
+			schedule.setTime(scheduleForm.getTime());
 			scheduleForm.setPlan(schedule.getPlan());
 			
 			// save in request

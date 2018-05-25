@@ -12,15 +12,15 @@
 			<value>org.gjt.mm.mysql.Driver</value>
 		</property>
 		<property name="url">
-			<value>jdbc:mysql://192.168.101.45:3306/demo?useUnicode=true&amp;characterEncoding=utf-8</value>
-			<!--<value>jdbc:mysql://localhost:3306/demo?useUnicode=true&amp;characterEncoding=utf-8</value>-->
+			<!--<value>jdbc:mysql://192.168.101.45:3306/demo?useUnicode=true&amp;characterEncoding=utf-8</value>-->
+			<value>jdbc:mysql://localhost:3306/demo?useUnicode=true&amp;characterEncoding=utf-8</value>
 		</property>
 		<property name="username">
 			<value>root</value>
 		</property>
 		<property name="password">
-			<value>111</value>
-			<!--<value>admin123</value>-->
+			<!--<value>111</value>-->
+			<value>admin123</value>
 		</property>
 	</bean>
 

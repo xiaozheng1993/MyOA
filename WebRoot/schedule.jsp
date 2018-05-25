@@ -36,18 +36,20 @@
 <b><html:errors property="org.apache.struts.action.GLOBAL_MESSAGE" /></b>
 <TABLE border="0" width="100%">
 	<TR class="tableheader">
-		<TD><bean:message key="schedule.page.year" /></TD>
+		<%--<TD><bean:message key="schedule.page.year" /></TD>
 		<TD><bean:message key="schedule.page.month" /></TD>
-		<TD><bean:message key="schedule.page.day" /></TD>
+		<TD><bean:message key="schedule.page.day" /></TD>--%>
+		<TD><bean:message key="schedule.page.time" /></TD>
 		<TD><bean:message key="schedule.page.plan" /></TD>
 		<TD><bean:message key="button.operation" /></TD>
 	</TR>
 	<logic:present name="scheduleList">
 	<logic:iterate id="schedule" name="scheduleList" scope="request">
 	<TR>
-		<TD><bean:write name="schedule" property="year" scope="page"/></TD>
+		<%--<TD><bean:write name="schedule" property="year" scope="page"/></TD>
 		<TD><bean:write name="schedule" property="month" scope="page"/></TD>
-		<TD><bean:write name="schedule" property="day" scope="page"/></TD>
+		<TD><bean:write name="schedule" property="day" scope="page"/></TD>--%>
+		<TD><bean:write name="schedule" property="time" scope="page"/></TD>
 		<TD><bean:write name="schedule" property="plan" scope="page"/></TD>
 		<TD><a href='schedule_edit.do?method=edit&id=<bean:write name="schedule" property="id" scope="page"/>'><bean:message key="button.edit" /></a>
 		<a href="schedule.do?method=delete&id=<bean:write name="schedule" property="id" scope="page"/>"><bean:message key="button.delete" /></a></TD>

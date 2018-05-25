@@ -38,6 +38,9 @@ public abstract class AbstractSchedule
     /** The value of the simple plan property. */
     private java.lang.String plan;
 
+    /** The value of the simple time property. */
+    private java.lang.String time;
+
     /**
      * Simple constructor of AbstractSchedule instances.
      */
@@ -161,6 +164,15 @@ public abstract class AbstractSchedule
     public void setPlan(java.lang.String plan)
     {
         this.plan = plan;
+    }
+
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     /**

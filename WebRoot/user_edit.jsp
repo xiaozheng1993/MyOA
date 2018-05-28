@@ -15,7 +15,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title><bean:message key="meeting_add.page.position" /></title>
+<title><bean:message key="meeting_edit.page.title" /></title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -23,51 +23,51 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" type="text/css" href="styles.css">
-	<link type="text/css" rel="stylesheet" href="css/jeDate-test.css">
-	<link type="text/css" rel="stylesheet" href="css/jedate.css">
-	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
-	<script type="text/javascript" src="js/jquery.jedate.js"></script>
-	<script type="text/javascript">
-        /**
-         * jeDate 演示
-         */
-        $(function () {
-            //常规选择
-            $("#test03").jeDate({
-                format: "YYYY-MM-DD"
-            });
-            $("#test04").jeDate({
-                format: "YYYY-MM-DD"
-            });
-
-
-        });
-	</script>
 </head>
 
 <body>
 <TABLE width="100%" class="position">
 	<TR>
-		<TD><bean:message key="meeting_add.page.position" /></TD>
+		<TD><bean:message key="meeting_edit.page.position" /></TD>
 		<TD align="right"><a href="meeting.do?method=back"><bean:message
-			key="meeting_add.page.back" /></a></TD>
+			key="meeting_edit.page.back" /></a></TD>
 		<TD width="20"></TD>
 	</TR>
 </TABLE>
-<form name="form1" action="meeting_add.do?method=insert" method="post">
+<form name="form1" action="meeting_edit.do?method=update" method="post">
 <b><html:errors property="org.apache.struts.action.GLOBAL_MESSAGE" /></b>
+
+<logic:present name="meetingFormBean">
+	<html:hidden property="id" name="meetingFormBean"/>
+</logic:present>
+<logic:notPresent name="meetingFormBean">
+	<input type="hidden" name="id">
+</logic:notPresent>
+		
 <TABLE border="0" width="100%">
 	<TR>
+		<TD><bean:message key="meeting.page.sender" /></TD>
+		<TD><logic:present name="meetingFormBean">
+			<html:text property="sender" name="meetingFormBean" maxlength="4" readonly="true"/>
+		</logic:present> <logic:notPresent name="meetingFormBean">
+			<input type="text" name="sender" maxlength="4" readonly>
+		</logic:notPresent></TD>
+	</TR>
+	<TR>
 		<TD><bean:message key="meeting.page.starttime" /></TD>
-		<TD>
-			<input type="text" id="test03" name="starttime" maxlength="100">
-		</TD>
+		<TD><logic:present name="meetingFormBean">
+			<html:text property="starttime" name="meetingFormBean" maxlength="100"/>
+		</logic:present> <logic:notPresent name="meetingFormBean">
+			<input type="text" name="starttime" maxlength="100">
+		</logic:notPresent> <html:errors property="starttime" /></TD>
 	</TR>
 	<TR>
 		<TD><bean:message key="meeting.page.endtime" /></TD>
-		<TD>
-			<input type="text" id="test04" name="endtime" maxlength="100">
-		</TD>
+		<TD><logic:present name="meetingFormBean">
+			<html:text property="endtime" name="meetingFormBean" maxlength="100"/>
+		</logic:present> <logic:notPresent name="meetingFormBean">
+			<input type="text" name="endtime" maxlength="100">
+		</logic:notPresent> <html:errors property="endtime" /></TD>
 	</TR>
 	<TR>
 		<TD><bean:message key="meeting.page.address" /></TD>

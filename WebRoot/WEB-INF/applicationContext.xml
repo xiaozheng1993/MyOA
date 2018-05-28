@@ -34,6 +34,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>com/demo/hibernate/beans/User.hbm.xml</value>
+				<value>com/demo/hibernate/beans/UserType.hbm.xml</value>
 				<value>com/demo/hibernate/beans/Address.hbm.xml</value>
 				<value>com/demo/hibernate/beans/Schedule.hbm.xml</value>
 				<value>com/demo/hibernate/beans/Worklog.hbm.xml</value>
@@ -48,6 +49,7 @@
 					org.hibernate.dialect.MySQLDialect
 				</prop>
 				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 	</bean>
@@ -347,6 +349,26 @@
 		class="com.demo.struts.actions.MeetingAction">
 		<property name="meetingDAO">
 			<ref local="meetingDAO" />
+		</property>
+	</bean>
+
+	<!-- 定义Struts配置：USER -->
+	<bean name="/user"
+		  class="com.demo.struts.actions.UserAction">
+		<property name="userDAO">
+			<ref local="userDAO" />
+		</property>
+	</bean>
+	<bean name="/user_add"
+		  class="com.demo.struts.actions.UserAction">
+		<property name="userDAO">
+			<ref local="userDAO" />
+		</property>
+	</bean>
+	<bean name="/user_edit"
+		  class="com.demo.struts.actions.UserAction">
+		<property name="userDAO">
+			<ref local="userDAO" />
 		</property>
 	</bean>
 

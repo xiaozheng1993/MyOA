@@ -48,6 +48,9 @@
 		<form-bean name="meetingForm"
 			type="com.demo.struts.forms.MeetingForm">
 		</form-bean>
+		<form-bean name="userForm"
+			type="com.demo.struts.forms.UserForm">
+		</form-bean>
 	</form-beans>
 
 	<global-exceptions />
@@ -198,6 +201,27 @@
 			input="/meeting_edit.jsp">
 			<forward name="list" path="/meeting.jsp" />
 			<forward name="edit" path="/meeting_edit.jsp" />
+		</action>
+
+		<!-- 用户管理 -->
+		<action path="/user" parameter="method" name="pageForm"
+				scope="request"
+				type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="list" path="/user.jsp" />
+		</action>
+		<action path="/user_add" parameter="method"
+				name="UserForm" scope="request"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				input="/user_add.jsp">
+			<forward name="list" path="/user.jsp" />
+			<forward name="add" path="/user_add.jsp" />
+		</action>
+		<action path="/user_edit" parameter="method"
+				name="meetingForm" scope="request"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				input="user_edit.jsp">
+			<forward name="list" path="/user.jsp" />
+			<forward name="edit" path="/user_edit.jsp" />
 		</action>
 
 	</action-mappings>

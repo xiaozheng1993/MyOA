@@ -53,6 +53,9 @@
 				<td><li><a href="meeting.do?method=list"><bean:message key="frame.meeting" /></a></li></td>
 			</tr>
 			<tr>
+				<td><li><a href="user.do?method=list"><bean:message key="frame.user" /></a></li></td>
+			</tr>
+			<tr>
 				<td><li><a href="logout.do"><bean:message key="frame.logout" /></a></li></td>
 			</tr>
 		</table>

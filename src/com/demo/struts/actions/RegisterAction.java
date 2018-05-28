@@ -16,6 +16,10 @@ import com.demo.hibernate.dao.UserDAO;
 import com.demo.struts.forms.RegisterForm;
 import com.demo.struts.util.Constants;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class RegisterAction extends DispatchAction {
 
 	protected UserDAO userDAO;
@@ -88,10 +92,23 @@ public class RegisterAction extends DispatchAction {
 	}
 
 	private void insert(HttpServletRequest request, RegisterForm registerForm) {
-		User user = new User();
-		user.setUsername(registerForm.getUsername());
-		user.setPassword(registerForm.getPassword1());
-		user.setEmail(registerForm.getEmail());
-		getUserDAO().insertUser(user);
+		try {
+			User user = new User();
+			user.setUsername(registerForm.getUsername());
+			user.setPassword(registerForm.getPassword1());
+			user.setEmail(registerForm.getEmail());
+			/*用户注册时给用户表增加注册时间*/
+			Date nowTimes = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String nowTime = sdf.format(nowTimes);
+			Date crateDate = sdf.parse(nowTime);
+			user.setCreateDate(crateDate);
+
+			getUserDAO().insertUser(user);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+
 	}
 }

@@ -6,17 +6,14 @@
 <!-- Created Tue Aug 14 18:57:22 CST 2007                         -->
 <hibernate-mapping package="com.demo.hibernate.beans">
 
-    <class name="User" table="user">
+    <class name="UserType" table="usertype">
         <id name="id" column="ID" type="integer">
             <generator class="native"/>
         </id>
  
-        <property name="username" column="username" type="string" />
-        <property name="password" column="password" type="string" />
-        <property name="email" column="email" type="string" />
         <property name="userTypeId" column="userTypeId" type="java.lang.Integer" />
         <property name="userTypeName" column="userTypeName" type="string" />
-        <property name="createDate" column="createDate" type="java.util.Date" />
+        <property name="ext" column="ext" type="string" />
     </class>
     
 </hibernate-mapping>
